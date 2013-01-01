@@ -42,7 +42,9 @@ class SKVerticalScrollMenu : SKCropNode{
         addChild(scrollLayer)
         
         let mask = SKTexture()
-        maskNode = SKSpriteNode(texture: mask, size: size)
+        let maskSprite = SKSpriteNode(texture: mask, size: size)
+        maskSprite.anchorPoint = CGPoint(x: 0.5, y: 1)
+        maskNode = maskSprite
         
         isUserInteractionEnabled = true
     }

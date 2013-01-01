@@ -14,6 +14,16 @@ class Inventory{
     init()
     {
         collectedMineables = [MineableType]()
+        
+        for i in 0..<12{
+            if(i % 2 == 0)
+            {
+                collectedMineables.append(MineableType.gem)
+            }
+            else{
+                collectedMineables.append(MineableType.poke)
+            }
+        }
     }
     
     func addMineable(_ mineable: MineableType)
