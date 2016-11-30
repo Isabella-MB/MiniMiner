@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MiniMiner
 //
-//  Created by Elias Bickel (student LM) on 11/30/16.
+//  Created by Elias Bickel (student LM) on 11/18/16.
 //  Copyright © 2016 Pixelaborate. All rights reserved.
 //
 

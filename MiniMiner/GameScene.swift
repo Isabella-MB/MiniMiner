@@ -2,44 +2,28 @@
 //  GameScene.swift
 //  MiniMiner
 //
-//  Created by Elias Bickel (student LM) on 11/30/16.
-//  Copyright (c) 2016 Pixelaborate. All rights reserved.
+//  Created by Elias Bickel (student LM) on 11/29/16.
+//  Copyright © 2016 Pixelaborate. All rights reserved.
 //
 
+import Foundation
 import SpriteKit
 
-class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
+class GameScene : SKScene{
+    let game: Game
+    let mainLayer: SKNode
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder) is not used in this app")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    init(_ game: Game) {
+        self.game = game
+        mainLayer = SKNode()
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
-    }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        super.init(size: CGSize(width: 1280, height: 720))
+        
+        scaleMode = .Fill
+        addChild(mainLayer)
     }
 }
