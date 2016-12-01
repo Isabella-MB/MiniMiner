@@ -9,6 +9,9 @@
 import Foundation
 import SpriteKit
 
+let tileWidth: CGFloat = 60.0
+let tileHeight: CGFloat = 60.0
+
 class Game{
     
     let skView : SKView
@@ -23,14 +26,14 @@ class Game{
         skView.showsNodeCount = true
         skView.multipleTouchEnabled = false;
         
-        ChangeScene(TitleScene(self))
+        ChangeScene(TitleScene(self), transition: SKTransition.pushWithDirection(.Left, duration: 0.4))
     }
     
-    func ChangeScene(newScene : SKScene)
+    func ChangeScene(newScene : SKScene, transition: SKTransition)
     {
         previousScene = currentScene
         currentScene = newScene
-        skView.presentScene(currentScene)
+        skView.presentScene(currentScene, transition: transition)
     }
     
     func ToPreviousScene()

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50A72BA71DEF3A2D003460A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A72BA61DEF3A2D003460A2 /* Assets.xcassets */; };
 		50A72BAA1DEF3A2D003460A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A72BA81DEF3A2D003460A2 /* LaunchScreen.storyboard */; };
 		50A72BB51DEF3A2D003460A2 /* MiniMinerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BB41DEF3A2D003460A2 /* MiniMinerTests.swift */; };
 		50A72BC01DEF3A2D003460A2 /* MiniMinerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BBF1DEF3A2D003460A2 /* MiniMinerUITests.swift */; };
@@ -22,6 +21,8 @@
 		50A72BDE1DEF3C6A003460A2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BD61DEF3C6A003460A2 /* GameViewController.swift */; };
 		50A72BE01DEF3C92003460A2 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BDF1DEF3C92003460A2 /* Wall.swift */; };
 		50A72BE21DEF4007003460A2 /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BE11DEF4007003460A2 /* Rock.swift */; };
+		50E625031DF05FF000EBAAF6 /* Mineable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E625021DF05FF000EBAAF6 /* Mineable.swift */; };
+		50E625071DF06FA100EBAAF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E625061DF06FA100EBAAF6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		50A72B981DEF3A2D003460A2 /* MiniMiner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniMiner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		50A72BA61DEF3A2D003460A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A72BA91DEF3A2D003460A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50A72BAB1DEF3A2D003460A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50A72BB01DEF3A2D003460A2 /* MiniMinerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniMinerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +63,8 @@
 		50A72BD61DEF3C6A003460A2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		50A72BDF1DEF3C92003460A2 /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		50A72BE11DEF4007003460A2 /* Rock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
+		50E625021DF05FF000EBAAF6 /* Mineable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mineable.swift; sourceTree = "<group>"; };
+		50E625061DF06FA100EBAAF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		50A72B9A1DEF3A2D003460A2 /* MiniMiner */ = {
 			isa = PBXGroup;
 			children = (
+				50E625061DF06FA100EBAAF6 /* Assets.xcassets */,
 				50A72BCF1DEF3C6A003460A2 /* Rock.atlas */,
 				50A72BD01DEF3C6A003460A2 /* State.swift */,
 				50A72BD11DEF3C6A003460A2 /* MiningScene.swift */,
@@ -123,10 +126,10 @@
 				50A72BDF1DEF3C92003460A2 /* Wall.swift */,
 				50A72BE11DEF4007003460A2 /* Rock.swift */,
 				50A72BD61DEF3C6A003460A2 /* GameViewController.swift */,
-				50A72BA61DEF3A2D003460A2 /* Assets.xcassets */,
 				50A72BCD1DEF3C1C003460A2 /* Main.storyboard */,
 				50A72BA81DEF3A2D003460A2 /* LaunchScreen.storyboard */,
 				50A72BAB1DEF3A2D003460A2 /* Info.plist */,
+				50E625021DF05FF000EBAAF6 /* Mineable.swift */,
 			);
 			path = MiniMiner;
 			sourceTree = "<group>";
@@ -255,8 +258,8 @@
 			files = (
 				50A72BD71DEF3C6A003460A2 /* Rock.atlas in Resources */,
 				50A72BCE1DEF3C1C003460A2 /* Main.storyboard in Resources */,
+				50E625071DF06FA100EBAAF6 /* Assets.xcassets in Resources */,
 				50A72BAA1DEF3A2D003460A2 /* LaunchScreen.storyboard in Resources */,
-				50A72BA71DEF3A2D003460A2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +286,7 @@
 			files = (
 				50A72BDE1DEF3C6A003460A2 /* GameViewController.swift in Sources */,
 				50A72BDD1DEF3C6A003460A2 /* AppDelegate.swift in Sources */,
+				50E625031DF05FF000EBAAF6 /* Mineable.swift in Sources */,
 				50A72BD91DEF3C6A003460A2 /* MiningScene.swift in Sources */,
 				50A72BE21DEF4007003460A2 /* Rock.swift in Sources */,
 				50A72BDC1DEF3C6A003460A2 /* Game.swift in Sources */,
@@ -513,6 +517,7 @@
 				50A72BC61DEF3A2D003460A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50A72BC71DEF3A2D003460A2 /* Build configuration list for PBXNativeTarget "MiniMinerTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +526,7 @@
 				50A72BC91DEF3A2D003460A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50A72BCA1DEF3A2D003460A2 /* Build configuration list for PBXNativeTarget "MiniMinerUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +535,7 @@
 				50A72BCC1DEF3A2D003460A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

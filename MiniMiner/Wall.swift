@@ -11,15 +11,25 @@ import SpriteKit
 
 class Wall{
     
-    let numberOfRows = 12
+    let numberOfRows = 16
     let numberOfCols = 12
     let wallLayer = SKNode()
     
     private var rocks: [[Rock]]
+    private var mineables: [Mineable]
     
     init()
     {
         rocks = [[Rock]]()
+        mineables = [Mineable]()
+        
+        for _ in 0..<2{
+            mineables.append(Mineable(position: CGPoint(x: 3, y: 3), mineableType: MineableType.platinum))
+        }
+        
+        for i in 0..<2{
+            wallLayer.addChild(mineables[i])
+        }
         
         for i in 0..<numberOfRows{
             rocks.append([Rock]())
@@ -37,7 +47,7 @@ class Wall{
     
     func randomRock() -> RockType
     {
-        return RockType(rawValue: Int(arc4random_uniform(3)) + 1)!
+        return RockType(rawValue: Int(arc4random_uniform(3)))!
     }
     
     func rockAt(pos: CGPoint) -> Rock

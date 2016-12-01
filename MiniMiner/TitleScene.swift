@@ -42,7 +42,7 @@ class TitleScene: GameScene {
     
     func swipedRight(sender: UISwipeGestureRecognizer)
     {
-        game.ChangeScene(MiningScene(game))
+        game.ChangeScene(MiningScene(game), transition: SKTransition.pushWithDirection(.Right, duration: 0.4))
         game.skView.removeGestureRecognizer(sender)
     }
     

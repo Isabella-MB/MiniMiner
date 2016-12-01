@@ -10,11 +10,10 @@ import Foundation
 import SpriteKit
 
 enum RockType: Int{
-    case nothing = 0, soft, medium, hard
+    case soft, medium, hard
     
     var spriteName: String {
         let spriteNames = [
-            "",
             "Soft",
             "Medium",
             "Hard"]
@@ -25,9 +24,6 @@ enum RockType: Int{
 
 class Rock: SKSpriteNode{
     var rockType: RockType
-    
-    let tileWidth: CGFloat = 60.0
-    let tileHeight: CGFloat = 60.0
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -46,8 +42,19 @@ class Rock: SKSpriteNode{
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("touchedd")
-        rockType = RockType(rawValue: rockType.rawValue - 1)!
-        texture = SKTexture(imageNamed: rockType.spriteName)
+        breakRock()
+    }
+    
+    func breakRock()
+    {
+        if(rockType.rawValue > 0)
+        {
+            rockType = RockType(rawValue: rockType.rawValue - 1)!
+            texture = SKTexture(imageNamed: rockType.spriteName)
+        }
+        
+        else{
+            removeFromParent()
+        }
     }
 }

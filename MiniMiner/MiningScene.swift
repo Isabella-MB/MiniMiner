@@ -34,7 +34,7 @@ class MiningScene: GameScene {
     
     func swipedLeft(sender: UISwipeGestureRecognizer)
     {
-        game.ChangeScene(TitleScene(game))
+        game.ChangeScene(TitleScene(game), transition: SKTransition.pushWithDirection(.Left, duration: 0.4))
         game.skView.removeGestureRecognizer(sender)
     }
     
