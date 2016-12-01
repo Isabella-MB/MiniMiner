@@ -55,7 +55,6 @@ class Mineable: SKSpriteNode {
         
         self.position = CGPoint(x: position.x * tileWidth, y: position.y * tileHeight)
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        self.userInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {

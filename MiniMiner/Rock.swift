@@ -47,6 +47,33 @@ class Rock: SKSpriteNode{
     
     func breakRock()
     {
+        let particleEmitter = SKEmitterNode()
+        
+        particleEmitter.particleBirthRate = 10000
+        particleEmitter.emissionAngleRange = 6.28
+        particleEmitter.numParticlesToEmit = 10
+        particleEmitter.position = CGPoint(x: position.x + tileWidth / 2, y: position.y + tileHeight / 2)
+        particleEmitter.particlePositionRange = CGVector(dx: tileWidth / 2, dy: tileHeight / 2)
+        particleEmitter.particleLifetime = 1
+        print(rockType.spriteName)
+        particleEmitter.particleTexture = SKTexture(imageNamed: rockType.spriteName + "Particle")
+        particleEmitter.particleScaleRange = 0.25
+        particleEmitter.particleScale = 1
+        particleEmitter.particleSpeed = 80
+        particleEmitter.particleAlphaSpeed = -1
+        particleEmitter.particleRotationRange = 40
+        particleEmitter.particleRotationSpeed = 3
+        particleEmitter.particleSpeedRange = 20
+        particleEmitter.particleSize = CGSize(width: 60, height: 60)
+        
+        let wait = SKAction.waitForDuration(1)
+        let remove = SKAction.removeFromParent()
+        let sequence = SKAction.sequence([wait, remove])
+        
+        particleEmitter.runAction(sequence)
+        
+        parent!.addChild(particleEmitter)
+        
         if(rockType.rawValue > 0)
         {
             rockType = RockType(rawValue: rockType.rawValue - 1)!
