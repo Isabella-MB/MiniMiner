@@ -20,11 +20,11 @@ enum MineableType: Int{
     }
     
     var coordinates: [CGPoint]{
-        let size = [
+        let coordinates = [
             [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: 1), CGPoint(x: 1, y: 1)]
         ]
         
-        return size[rawValue]
+        return coordinates[rawValue]
     }
     
     var size: CGSize{
@@ -44,12 +44,14 @@ enum MineableType: Int{
 class Mineable: SKSpriteNode {
     
     var mineableType: MineableType;
+    var coordinates: CGPoint;
     
     init(position: CGPoint, mineableType: MineableType)
     {
         self.mineableType = mineableType
         
         let texture = SKTexture(imageNamed: mineableType.spriteName)
+        coordinates = position
         
         super.init(texture: texture, color: UIColor.whiteColor(), size: mineableType.size)
         

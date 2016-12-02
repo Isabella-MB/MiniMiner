@@ -124,12 +124,12 @@
 				50A72BD41DEF3C6A003460A2 /* Game.swift */,
 				50A72BD51DEF3C6A003460A2 /* AppDelegate.swift */,
 				50A72BDF1DEF3C92003460A2 /* Wall.swift */,
+				50E625021DF05FF000EBAAF6 /* Mineable.swift */,
 				50A72BE11DEF4007003460A2 /* Rock.swift */,
 				50A72BD61DEF3C6A003460A2 /* GameViewController.swift */,
 				50A72BCD1DEF3C1C003460A2 /* Main.storyboard */,
 				50A72BA81DEF3A2D003460A2 /* LaunchScreen.storyboard */,
 				50A72BAB1DEF3A2D003460A2 /* Info.plist */,
-				50E625021DF05FF000EBAAF6 /* Mineable.swift */,
 			);
 			path = MiniMiner;
 			sourceTree = "<group>";

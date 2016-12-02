@@ -18,36 +18,47 @@ class Wall{
     private var rocks: [[Rock]]
     private var mineables: [Mineable]
     
+    let numberOfMineables: Int
+    
     init()
     {
         rocks = [[Rock]]()
         mineables = [Mineable]()
         
-        for _ in 0..<2{
-            mineables.append(Mineable(position: CGPoint(x: 3, y: 3), mineableType: MineableType.platinum))
-        }
-        
-        for i in 0..<2{
-            wallLayer.addChild(mineables[i])
-        }
-        
         for i in 0..<numberOfRows{
             rocks.append([Rock]())
             for j in 0..<numberOfCols{
-                rocks[i].append((Rock(position: CGPoint(x: i, y: j), type: randomRock())))
+                rocks[i].append((Rock(position: CGPoint(x: i, y: j), type: RockType(rawValue: Int(arc4random_uniform(3)))!)))
+                if(75 < arc4random_uniform(100))
+                {
+                    var coordTaken = false;
+                    
+                    for mineable in mineables{
+                        for coordinate in mineable.mineableType.coordinates{
+                            if(mineable.coordinates.x + coordinate.x == CGFloat(i) && mineable.coordinates.y + coordinate.y == CGFloat(j)){
+                                coordTaken = true
+                            }
+                        }
+                    }
+                    
+                    if(!coordTaken)
+                    {
+                        mineables.append(Mineable(position: CGPoint(x: i, y: j), mineableType: MineableType.platinum))
+                    }
+                }
             }
         }
+        
+        numberOfMineables = mineables.count
         
         for i in 0..<numberOfRows{
             for j in 0..<numberOfCols{
                 wallLayer.addChild(rocks[i][j])
             }
         }
-    }
-    
-    func randomRock() -> RockType
-    {
-        return RockType(rawValue: Int(arc4random_uniform(3)))!
+        for i in 0..<numberOfMineables{
+            wallLayer.addChild(mineables[i])
+        }
     }
     
     func rockAt(pos: CGPoint) -> Rock

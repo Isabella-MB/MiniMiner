@@ -55,7 +55,6 @@ class Rock: SKSpriteNode{
         particleEmitter.position = CGPoint(x: position.x + tileWidth / 2, y: position.y + tileHeight / 2)
         particleEmitter.particlePositionRange = CGVector(dx: tileWidth / 2, dy: tileHeight / 2)
         particleEmitter.particleLifetime = 1
-        print(rockType.spriteName)
         particleEmitter.particleTexture = SKTexture(imageNamed: rockType.spriteName + "Particle")
         particleEmitter.particleScaleRange = 0.25
         particleEmitter.particleScale = 1
