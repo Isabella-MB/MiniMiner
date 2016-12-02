@@ -18,8 +18,6 @@ class Wall{
     private var rocks: [[Rock]]
     private var mineables: [Mineable]
     
-    let numberOfMineables: Int
-    
     init()
     {
         rocks = [[Rock]]()
@@ -31,37 +29,45 @@ class Wall{
                 rocks[i].append((Rock(position: CGPoint(x: i, y: j), type: RockType(rawValue: Int(arc4random_uniform(3)))!)))
                 if(75 < arc4random_uniform(100))
                 {
+                    let rockType = MineableType.platinum
+                    
                     var coordTaken = false;
                     
+                    // Tests to see if the newly placed mineable overlaps with an old mineable
                     for mineable in mineables{
-                        for coordinate in mineable.mineableType.coordinates{
-                            if(mineable.coordinates.x + coordinate.x == CGFloat(i) && mineable.coordinates.y + coordinate.y == CGFloat(j)){
-                                coordTaken = true
+                        for oldMineableCoordinate in mineable.mineableType.coordinates{
+                            for newMineableCoordinate in rockType.coordinates{
+                                if(mineable.coordinates.x + oldMineableCoordinate.x == CGFloat(i) + newMineableCoordinate.x && mineable.coordinates.y + oldMineableCoordinate.y == CGFloat(j) + newMineableCoordinate.y){
+                                    coordTaken = true
+                                }
                             }
+                        }
+                    }
+                    
+                    // Tests to see if the newly placed mineable is outside of the grid
+                    for newMineableCoordinate in rockType.coordinates {
+                        if((CGFloat(i) + newMineableCoordinate.x >= CGFloat(numberOfRows)) || (CGFloat(j) + newMineableCoordinate.y >= CGFloat(numberOfCols))){
+                            coordTaken = true
                         }
                     }
                     
                     if(!coordTaken)
                     {
-                        mineables.append(Mineable(position: CGPoint(x: i, y: j), mineableType: MineableType.platinum))
+                        mineables.append(Mineable(position: CGPoint(x: i, y: j), mineableType: rockType))
                     }
                 }
             }
         }
         
-        numberOfMineables = mineables.count
+        for i in 0..<mineables.count{
+            wallLayer.addChild(mineables[i])
+        }
         
         for i in 0..<numberOfRows{
             for j in 0..<numberOfCols{
+                
                 wallLayer.addChild(rocks[i][j])
             }
-        }
-        for i in 0..<numberOfMineables{
-            let sprite = SKSpriteNode(color: UIColor(red: CGFloat(Float(i) / Float(numberOfMineables)), green: CGFloat(Float(i) / Float(numberOfMineables)), blue: CGFloat(Float(i) / Float(numberOfMineables)), alpha: 1), size: CGSize(width: tileWidth * 2, height: tileHeight * 2))
-            sprite.position = mineables[i].position
-            sprite.anchorPoint = CGPoint(x: 0, y: 0)
-            wallLayer.addChild(sprite)
-            wallLayer.addChild(mineables[i])
         }
     }
     
