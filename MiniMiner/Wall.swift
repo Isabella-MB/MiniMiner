@@ -57,6 +57,10 @@ class Wall{
             }
         }
         for i in 0..<numberOfMineables{
+            let sprite = SKSpriteNode(color: UIColor(red: CGFloat(Float(i) / Float(numberOfMineables)), green: CGFloat(Float(i) / Float(numberOfMineables)), blue: CGFloat(Float(i) / Float(numberOfMineables)), alpha: 1), size: CGSize(width: tileWidth * 2, height: tileHeight * 2))
+            sprite.position = mineables[i].position
+            sprite.anchorPoint = CGPoint(x: 0, y: 0)
+            wallLayer.addChild(sprite)
             wallLayer.addChild(mineables[i])
         }
     }
