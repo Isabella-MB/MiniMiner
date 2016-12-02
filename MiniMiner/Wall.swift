@@ -27,7 +27,7 @@ class Wall{
             rocks.append([Rock]())
             for j in 0..<numberOfCols{
                 rocks[i].append((Rock(position: CGPoint(x: i, y: j), type: RockType(rawValue: Int(arc4random_uniform(3)))!)))
-                if(75 < arc4random_uniform(100))
+                if(96 < arc4random_uniform(100))
                 {
                     let rockType = MineableType.platinum
                     
@@ -65,10 +65,10 @@ class Wall{
         
         for i in 0..<numberOfRows{
             for j in 0..<numberOfCols{
-                
                 wallLayer.addChild(rocks[i][j])
             }
         }
+        
     }
     
     func rockAt(pos: CGPoint) -> Rock
