@@ -25,7 +25,12 @@ class Sparkle: SKSpriteNode
         self.zPosition = -1
         self.userInteractionEnabled = true
         
-        runAction(SKAction.animateWithTextures([frame1, frame2], timePerFrame: 0.1))
+        let wait = SKAction.waitForDuration(5)
+        let destroy = SKAction.removeFromParent()
+        let sequence = SKAction.sequence([wait, destroy])
+        
+        runAction(SKAction.repeatActionForever(SKAction.animateWithTextures([frame1, frame2], timePerFrame: 0.1)))
+        runAction(sequence)
     }
     
     required init?(coder aDecoder: NSCoder) {

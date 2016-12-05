@@ -9,55 +9,6 @@
 import Foundation
 import SpriteKit
 
-enum MineableType: Int{
-    case poke, gem
-    
-    var spriteName: String {
-        let spriteNames = [
-            "Poke",
-            "Gem"]
-        
-        return spriteNames[rawValue]
-    }
-    
-    var coordinates: [CGPoint]{
-        let coordinates = [
-            [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: 1), CGPoint(x: 1, y: 1)],
-            [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 0), CGPoint(x: 3, y: 0), CGPoint(x: 4, y: 0), CGPoint(x: 0, y: 1), CGPoint(x: 0, y: 2), CGPoint(x: 0, y: 3), CGPoint(x: 0, y: 4), CGPoint(x: 4, y: 1), CGPoint(x: 4, y: 2), CGPoint(x: 4, y: 3), CGPoint(x: 4, y: 4), CGPoint(x: 1, y: 4), CGPoint(x: 2, y: 4), CGPoint(x: 3, y: 4)]
-        ]
-        
-        return coordinates[rawValue]
-    }
-    
-    var size: CGSize{
-        
-        var size = CGSize()
-        
-        for point in coordinates
-        {
-            size.width = max(size.width, point.x + 1)
-            size.height = max(size.height, point.y + 1)
-        }
-        
-        return CGSize(width: size.width * tileWidth, height: size.height * tileHeight)
-    }
-    
-    private static let count: MineableType.RawValue = {
-        // find the maximum enum value
-        var maxValue: Int = 0
-        while let _ = MineableType(rawValue: maxValue) {
-            maxValue += 1
-        }
-        return maxValue
-    }()
-    
-    static func randomMineableType() -> MineableType {
-        // pick and return a new value
-        let rand = Int(arc4random_uniform(UInt32(count)))
-        return MineableType(rawValue: rand)!
-    }
-}
-
 class Mineable: SKSpriteNode {
     
     var mineableType: MineableType;
@@ -69,7 +20,7 @@ class Mineable: SKSpriteNode {
     {
         self.mineableType = mineableType
         
-        let texture = SKTexture(imageNamed: mineableType.spriteName)
+        let texture = SKTexture(imageNamed: mineableType.name)
         coordinates = position
         
         super.init(texture: texture, color: UIColor.whiteColor(), size: mineableType.size)
@@ -79,16 +30,19 @@ class Mineable: SKSpriteNode {
         self.zPosition = -1
     }
     
-    func reveal()
+    func reveal(inventory: Inventory)
     {
         if(!revealed){
             let bulge = SKAction.scaleTo(1.1, duration: 0.05)
             let shrink = SKAction.scaleTo(0, duration: 1)
-            let sequence = SKAction.sequence([bulge, shrink])
+            let destroy = SKAction.removeFromParent()
+            let sequence = SKAction.sequence([bulge, shrink, destroy])
             
             self.zPosition = 1
             
             runAction(sequence)
+            
+            inventory.addMineable(mineableType)
             
             revealed = true
         }

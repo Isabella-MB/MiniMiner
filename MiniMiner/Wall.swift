@@ -17,10 +17,13 @@ class Wall : SKNode{
     private var rocks: [[Rock]]
     private var mineables: [Mineable]
     
+    private var durability: Int
+    
     override init()
     {
         rocks = [[Rock]]()
         mineables = [Mineable]()
+        durability = 100
         
         super.init()
         
@@ -37,10 +40,13 @@ class Wall : SKNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update()
+    func update(game: Game)
     {
-        for mineable in mineables{
-            mineableRevealed(mineable)
+        mineableRevealed(game.inventory)
+        
+        if(durability < 0)
+        {
+            game.ChangeScene(UndergroundScene(game), transition: SKTransition.fadeWithDuration(3))
         }
     }
     
@@ -52,8 +58,13 @@ class Wall : SKNode{
             let y: Int = Int(loc.y / tileHeight)
             
             rocks[x][y].breakRock()
+            
+            durability -= 1
+            
             if(miningMode == .hammer)
             {
+                durability -= 6
+                
                 if(x < numberOfCols - 1)
                 {
                     rocks[x + 1][y].breakRock()
@@ -90,15 +101,20 @@ class Wall : SKNode{
         }
     }
     
-    func mineableRevealed(mineable : Mineable)
+    func mineableRevealed(inventory : Inventory)
     {
-        for coordinate in mineable.mineableType.coordinates{
-            if(rocks[Int(coordinate.x + mineable.coordinates.x)][Int(coordinate.y + mineable.coordinates.y)].parent != nil){
-                return
+        for mineable in mineables{
+            var revealed = true
+            for coordinate in mineable.mineableType.coordinates{
+                if(rocks[Int(coordinate.x + mineable.coordinates.x)][Int(coordinate.y + mineable.coordinates.y)].parent != nil){
+                    revealed = false
+                }
+            }
+            
+            if(revealed){
+                mineable.reveal(inventory)
             }
         }
-        
-        mineable.reveal()
     }
     
     func placeRocks()

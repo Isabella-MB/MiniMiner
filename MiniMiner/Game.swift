@@ -21,6 +21,7 @@ var miningMode = MiningMode.pickaxe
 class Game{
     
     let skView : SKView
+    let inventory : Inventory
     
     var currentScene : SKScene!
     var previousScene : SKScene!
@@ -31,6 +32,8 @@ class Game{
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.multipleTouchEnabled = false;
+        
+        inventory = Inventory()
         
         ChangeScene(TitleScene(self), transition: SKTransition.pushWithDirection(.Left, duration: 0.4))
     }

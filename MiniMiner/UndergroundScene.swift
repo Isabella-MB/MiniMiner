@@ -12,14 +12,17 @@ import SpriteKit
 class UndergroundScene: GameScene{
     
     let underground: Underground
+    let sidebar: Sidebar
     
     override init(_ game: Game) {
         
         underground = Underground()
+        sidebar = Sidebar(inventory: game.inventory)
         
         super.init(game)
         
         mainLayer.addChild(underground)
+        mainLayer.addChild(sidebar)
     }
     
     required init?(coder aDecoder: NSCoder) {
