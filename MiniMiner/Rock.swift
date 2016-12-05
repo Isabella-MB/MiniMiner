@@ -36,13 +36,8 @@ class Rock: SKSpriteNode{
         let texture = SKTexture(imageNamed: rockType.spriteName) 
         super.init(texture: texture, color: UIColor.whiteColor(), size: CGSize(width: tileWidth, height: tileHeight))
         
-        self.position = CGPoint(x: position.x * tileWidth, y: position.y * tileHeight)
-        self.anchorPoint = CGPoint(x: 0, y: 0)
-        self.userInteractionEnabled = true
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        breakRock()
+        self.position = CGPoint(x: position.x * tileWidth + tileWidth / 2, y: position.y * tileHeight + tileHeight / 2)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
     }
     
     func breakRock()
@@ -52,7 +47,7 @@ class Rock: SKSpriteNode{
         particleEmitter.particleBirthRate = 10000
         particleEmitter.emissionAngleRange = 6.28
         particleEmitter.numParticlesToEmit = 10
-        particleEmitter.position = CGPoint(x: position.x + tileWidth / 2, y: position.y + tileHeight / 2)
+        particleEmitter.position = CGPoint(x: position.x, y: position.y)
         particleEmitter.particlePositionRange = CGVector(dx: tileWidth / 2, dy: tileHeight / 2)
         particleEmitter.particleLifetime = 1
         particleEmitter.particleTexture = SKTexture(imageNamed: rockType.spriteName + "Particle")
@@ -64,6 +59,7 @@ class Rock: SKSpriteNode{
         particleEmitter.particleRotationSpeed = 3
         particleEmitter.particleSpeedRange = 20
         particleEmitter.particleSize = CGSize(width: 60, height: 60)
+        particleEmitter.zPosition = 2
         
         let wait = SKAction.waitForDuration(1)
         let remove = SKAction.removeFromParent()
@@ -71,7 +67,7 @@ class Rock: SKSpriteNode{
         
         particleEmitter.runAction(sequence)
         
-        parent!.addChild(particleEmitter)
+        parent?.addChild(particleEmitter)
         
         if(rockType.rawValue > 0)
         {

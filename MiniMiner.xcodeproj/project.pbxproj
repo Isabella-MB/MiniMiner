@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		506A57F61DF1FF8C00446B65 /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 506A57F51DF1FF8C00446B65 /* UI.atlas */; };
+		506A57F81DF2000900446B65 /* MiningUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F71DF2000900446B65 /* MiningUI.swift */; };
+		506A57FA1DF2002900446B65 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F91DF2002900446B65 /* SKButton.swift */; };
 		50A72BAA1DEF3A2D003460A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A72BA81DEF3A2D003460A2 /* LaunchScreen.storyboard */; };
 		50A72BB51DEF3A2D003460A2 /* MiniMinerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BB41DEF3A2D003460A2 /* MiniMinerTests.swift */; };
 		50A72BC01DEF3A2D003460A2 /* MiniMinerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BBF1DEF3A2D003460A2 /* MiniMinerUITests.swift */; };
 		50A72BCE1DEF3C1C003460A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A72BCD1DEF3C1C003460A2 /* Main.storyboard */; };
 		50A72BD71DEF3C6A003460A2 /* Rock.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 50A72BCF1DEF3C6A003460A2 /* Rock.atlas */; };
-		50A72BD81DEF3C6A003460A2 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BD01DEF3C6A003460A2 /* State.swift */; };
 		50A72BD91DEF3C6A003460A2 /* MiningScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BD11DEF3C6A003460A2 /* MiningScene.swift */; };
 		50A72BDA1DEF3C6A003460A2 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BD21DEF3C6A003460A2 /* TitleScene.swift */; };
 		50A72BDB1DEF3C6A003460A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BD31DEF3C6A003460A2 /* GameScene.swift */; };
@@ -21,6 +23,12 @@
 		50A72BDE1DEF3C6A003460A2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BD61DEF3C6A003460A2 /* GameViewController.swift */; };
 		50A72BE01DEF3C92003460A2 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BDF1DEF3C92003460A2 /* Wall.swift */; };
 		50A72BE21DEF4007003460A2 /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BE11DEF4007003460A2 /* Rock.swift */; };
+		50D51D031DF5A1CC00C82F6E /* TitleUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D021DF5A1CC00C82F6E /* TitleUI.swift */; };
+		50D51D091DF5A94A00C82F6E /* UndergroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D081DF5A94A00C82F6E /* UndergroundScene.swift */; };
+		50D51D0C1DF5AB7F00C82F6E /* Mineables.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 50D51D0B1DF5AB7F00C82F6E /* Mineables.atlas */; };
+		50D51D0E1DF5ABD400C82F6E /* Underground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D0D1DF5ABD400C82F6E /* Underground.swift */; };
+		50D51D101DF5AF3900C82F6E /* Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D0F1DF5AF3900C82F6E /* Sparkle.swift */; };
+		50D51D121DF5B07E00C82F6E /* Sparkle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 50D51D111DF5B07E00C82F6E /* Sparkle.atlas */; };
 		50E625031DF05FF000EBAAF6 /* Mineable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E625021DF05FF000EBAAF6 /* Mineable.swift */; };
 		50E625071DF06FA100EBAAF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E625061DF06FA100EBAAF6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -43,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		506A57F51DF1FF8C00446B65 /* UI.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = UI.atlas; sourceTree = "<group>"; };
+		506A57F71DF2000900446B65 /* MiningUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiningUI.swift; sourceTree = "<group>"; };
+		506A57F91DF2002900446B65 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
 		50A72B981DEF3A2D003460A2 /* MiniMiner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniMiner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A72BA91DEF3A2D003460A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50A72BAB1DEF3A2D003460A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +65,6 @@
 		50A72BC11DEF3A2D003460A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50A72BCD1DEF3C1C003460A2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		50A72BCF1DEF3C6A003460A2 /* Rock.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Rock.atlas; sourceTree = "<group>"; };
-		50A72BD01DEF3C6A003460A2 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		50A72BD11DEF3C6A003460A2 /* MiningScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiningScene.swift; sourceTree = "<group>"; };
 		50A72BD21DEF3C6A003460A2 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		50A72BD31DEF3C6A003460A2 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -63,6 +73,12 @@
 		50A72BD61DEF3C6A003460A2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		50A72BDF1DEF3C92003460A2 /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		50A72BE11DEF4007003460A2 /* Rock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
+		50D51D021DF5A1CC00C82F6E /* TitleUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleUI.swift; sourceTree = "<group>"; };
+		50D51D081DF5A94A00C82F6E /* UndergroundScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndergroundScene.swift; sourceTree = "<group>"; };
+		50D51D0B1DF5AB7F00C82F6E /* Mineables.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Mineables.atlas; sourceTree = "<group>"; };
+		50D51D0D1DF5ABD400C82F6E /* Underground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Underground.swift; sourceTree = "<group>"; };
+		50D51D0F1DF5AF3900C82F6E /* Sparkle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sparkle.swift; sourceTree = "<group>"; };
+		50D51D111DF5B07E00C82F6E /* Sparkle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sparkle.atlas; sourceTree = "<group>"; };
 		50E625021DF05FF000EBAAF6 /* Mineable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mineable.swift; sourceTree = "<group>"; };
 		50E625061DF06FA100EBAAF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,17 +132,17 @@
 			isa = PBXGroup;
 			children = (
 				50E625061DF06FA100EBAAF6 /* Assets.xcassets */,
+				50D51D111DF5B07E00C82F6E /* Sparkle.atlas */,
+				50D51D0B1DF5AB7F00C82F6E /* Mineables.atlas */,
+				506A57F51DF1FF8C00446B65 /* UI.atlas */,
 				50A72BCF1DEF3C6A003460A2 /* Rock.atlas */,
-				50A72BD01DEF3C6A003460A2 /* State.swift */,
-				50A72BD11DEF3C6A003460A2 /* MiningScene.swift */,
-				50A72BD21DEF3C6A003460A2 /* TitleScene.swift */,
-				50A72BD31DEF3C6A003460A2 /* GameScene.swift */,
-				50A72BD41DEF3C6A003460A2 /* Game.swift */,
-				50A72BD51DEF3C6A003460A2 /* AppDelegate.swift */,
-				50A72BDF1DEF3C92003460A2 /* Wall.swift */,
-				50E625021DF05FF000EBAAF6 /* Mineable.swift */,
-				50A72BE11DEF4007003460A2 /* Rock.swift */,
+				50D51D061DF5A62C00C82F6E /* Scenes */,
+				50D51D071DF5A90F00C82F6E /* UI */,
+				50D51D141DF5B0A700C82F6E /* Underground */,
+				50D51D131DF5B09B00C82F6E /* Mining */,
 				50A72BD61DEF3C6A003460A2 /* GameViewController.swift */,
+				50A72BD51DEF3C6A003460A2 /* AppDelegate.swift */,
+				50A72BD41DEF3C6A003460A2 /* Game.swift */,
 				50A72BCD1DEF3C1C003460A2 /* Main.storyboard */,
 				50A72BA81DEF3A2D003460A2 /* LaunchScreen.storyboard */,
 				50A72BAB1DEF3A2D003460A2 /* Info.plist */,
@@ -150,6 +166,46 @@
 				50A72BC11DEF3A2D003460A2 /* Info.plist */,
 			);
 			path = MiniMinerUITests;
+			sourceTree = "<group>";
+		};
+		50D51D061DF5A62C00C82F6E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				50A72BD31DEF3C6A003460A2 /* GameScene.swift */,
+				50A72BD21DEF3C6A003460A2 /* TitleScene.swift */,
+				50D51D081DF5A94A00C82F6E /* UndergroundScene.swift */,
+				50A72BD11DEF3C6A003460A2 /* MiningScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		50D51D071DF5A90F00C82F6E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				506A57F91DF2002900446B65 /* SKButton.swift */,
+				50D51D021DF5A1CC00C82F6E /* TitleUI.swift */,
+				506A57F71DF2000900446B65 /* MiningUI.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		50D51D131DF5B09B00C82F6E /* Mining */ = {
+			isa = PBXGroup;
+			children = (
+				50A72BDF1DEF3C92003460A2 /* Wall.swift */,
+				50E625021DF05FF000EBAAF6 /* Mineable.swift */,
+				50A72BE11DEF4007003460A2 /* Rock.swift */,
+			);
+			name = Mining;
+			sourceTree = "<group>";
+		};
+		50D51D141DF5B0A700C82F6E /* Underground */ = {
+			isa = PBXGroup;
+			children = (
+				50D51D0D1DF5ABD400C82F6E /* Underground.swift */,
+				50D51D0F1DF5AF3900C82F6E /* Sparkle.swift */,
+			);
+			name = Underground;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,9 +312,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506A57F61DF1FF8C00446B65 /* UI.atlas in Resources */,
 				50A72BD71DEF3C6A003460A2 /* Rock.atlas in Resources */,
 				50A72BCE1DEF3C1C003460A2 /* Main.storyboard in Resources */,
 				50E625071DF06FA100EBAAF6 /* Assets.xcassets in Resources */,
+				50D51D0C1DF5AB7F00C82F6E /* Mineables.atlas in Resources */,
+				50D51D121DF5B07E00C82F6E /* Sparkle.atlas in Resources */,
 				50A72BAA1DEF3A2D003460A2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,9 +349,14 @@
 				50A72BD91DEF3C6A003460A2 /* MiningScene.swift in Sources */,
 				50A72BE21DEF4007003460A2 /* Rock.swift in Sources */,
 				50A72BDC1DEF3C6A003460A2 /* Game.swift in Sources */,
-				50A72BD81DEF3C6A003460A2 /* State.swift in Sources */,
+				506A57FA1DF2002900446B65 /* SKButton.swift in Sources */,
 				50A72BE01DEF3C92003460A2 /* Wall.swift in Sources */,
+				50D51D031DF5A1CC00C82F6E /* TitleUI.swift in Sources */,
+				50D51D091DF5A94A00C82F6E /* UndergroundScene.swift in Sources */,
+				50D51D101DF5AF3900C82F6E /* Sparkle.swift in Sources */,
 				50A72BDB1DEF3C6A003460A2 /* GameScene.swift in Sources */,
+				50D51D0E1DF5ABD400C82F6E /* Underground.swift in Sources */,
+				506A57F81DF2000900446B65 /* MiningUI.swift in Sources */,
 				50A72BDA1DEF3C6A003460A2 /* TitleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

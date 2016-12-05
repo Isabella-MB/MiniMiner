@@ -12,6 +12,12 @@ import SpriteKit
 let tileWidth: CGFloat = 60.0
 let tileHeight: CGFloat = 60.0
 
+enum MiningMode{
+    case pickaxe, hammer
+}
+
+var miningMode = MiningMode.pickaxe
+
 class Game{
     
     let skView : SKView

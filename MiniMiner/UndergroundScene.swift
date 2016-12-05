@@ -1,24 +1,25 @@
 //
-//  TitleScene.swift
+//  OverworldScene.swift
 //  MiniMiner
 //
-//  Created by Elias Bickel (student LM) on 11/28/16.
+//  Created by Elias Bickel (student LM) on 12/5/16.
 //  Copyright © 2016 Pixelaborate. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class TitleScene: GameScene {
+class UndergroundScene: GameScene{
     
-    let ui: TitleUI
+    let underground: Underground
     
     override init(_ game: Game) {
-        ui = TitleUI()
+        
+        underground = Underground()
         
         super.init(game)
         
-        mainLayer.addChild(ui.uiLayer)
+        mainLayer.addChild(underground)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,6 +39,7 @@ class TitleScene: GameScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        ui.update(game)
+        
+        underground.update(game)
     }
 }
