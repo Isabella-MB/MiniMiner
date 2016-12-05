@@ -11,24 +11,8 @@ import SpriteKit
 
 class SKButton: SKSpriteNode{
     
-    var enabled: Bool = true {
-        didSet {
-            if(!enabled){
-                runAction(SKAction.colorizeWithColor(UIColor.blackColor(), colorBlendFactor: 1, duration: 0.3))
-            }
-        }
-    }
-    var selected: Bool = false {
-        didSet {
-            if(selected){
-                runAction(SKAction.colorizeWithColor(UIColor.greenColor(), colorBlendFactor: 0.5, duration: 0.01))
-            }
-            else
-            {
-                runAction(SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1, duration: 0.01))
-            }
-        }
-    }
+    var enabled: Bool = true
+    var selected: Bool = false
     
     required init(coder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -50,6 +34,8 @@ class SKButton: SKSpriteNode{
         }
         
         selected = true
+        
+        runAction(SKAction.colorizeWithColor(UIColor.greenColor(), colorBlendFactor: 0.5, duration: 0.01))
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent!) {
@@ -58,6 +44,7 @@ class SKButton: SKSpriteNode{
             return
         }
         selected = false
+        runAction(SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1, duration: 0.01))
     }
     
 }

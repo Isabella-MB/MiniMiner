@@ -11,7 +11,7 @@ import SpriteKit
 
 class Sidebar: SKNode{
     let sidebar: SKSpriteNode
-    var itemLabels: [SKLabelNode]
+    let itemMenu: SKVerticalScrollMenu
     
     init(inventory: Inventory)
     {
@@ -19,29 +19,29 @@ class Sidebar: SKNode{
         sidebar.anchorPoint = CGPoint(x: 0, y: 0)
         sidebar.zPosition = -20
         
-        itemLabels = [SKLabelNode]()
+        var itemLabels = [SKLabelNode]()
         
         for collectedMineables in inventory.collectedMineables{
             itemLabels.append(SKLabelNode(text: collectedMineables.name))
         }
         
-        var itemLabelPosition = CGPoint(x: 120, y: 0)
+        var itemLabelPosition = CGPoint(x: 0, y: -60)
         for itemLabel in itemLabels{
             itemLabel.position = itemLabelPosition
-            itemLabelPosition.y += 60
+            itemLabelPosition.y -= 60
             
             itemLabel.fontName = "Arial Black"
             itemLabel.fontSize = 60
         }
+        
+        itemMenu = SKVerticalScrollMenu(position: CGPoint(x: 120, y: 720), size: CGSize(width: 320, height: 400), childNodes: itemLabels)
         
         super.init()
     
         position = CGPoint(x: 960, y: 0)
         
         addChild(sidebar)
-        for itemLabel in itemLabels{
-            addChild(itemLabel)
-        }
+        addChild(itemMenu)
     }
     
     required init?(coder aDecoder: NSCoder) {

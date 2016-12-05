@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501AD82A1DF5E16F00F217B9 /* Stocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501AD8291DF5E16F00F217B9 /* Stocks.swift */; };
 		506A57F61DF1FF8C00446B65 /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 506A57F51DF1FF8C00446B65 /* UI.atlas */; };
 		506A57F81DF2000900446B65 /* MiningUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F71DF2000900446B65 /* MiningUI.swift */; };
 		506A57FA1DF2002900446B65 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F91DF2002900446B65 /* SKButton.swift */; };
@@ -32,7 +33,7 @@
 		50D51D161DF5BC2300C82F6E /* MineableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D151DF5BC2300C82F6E /* MineableType.swift */; };
 		50D51D191DF5C04D00C82F6E /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D181DF5C04D00C82F6E /* Inventory.swift */; };
 		50D51D1C1DF5C35F00C82F6E /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D1B1DF5C35F00C82F6E /* Sidebar.swift */; };
-		50D51D1E1DF5CC4600C82F6E /* SKScrollMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D1D1DF5CC4600C82F6E /* SKScrollMenu.swift */; };
+		50D51D1E1DF5CC4600C82F6E /* SKVerticalScrollMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51D1D1DF5CC4600C82F6E /* SKVerticalScrollMenu.swift */; };
 		50E625031DF05FF000EBAAF6 /* Mineable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E625021DF05FF000EBAAF6 /* Mineable.swift */; };
 		50E625071DF06FA100EBAAF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E625061DF06FA100EBAAF6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501AD8291DF5E16F00F217B9 /* Stocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stocks.swift; sourceTree = "<group>"; };
 		506A57F51DF1FF8C00446B65 /* UI.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = UI.atlas; sourceTree = "<group>"; };
 		506A57F71DF2000900446B65 /* MiningUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiningUI.swift; sourceTree = "<group>"; };
 		506A57F91DF2002900446B65 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		50D51D151DF5BC2300C82F6E /* MineableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineableType.swift; sourceTree = "<group>"; };
 		50D51D181DF5C04D00C82F6E /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		50D51D1B1DF5C35F00C82F6E /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
-		50D51D1D1DF5CC4600C82F6E /* SKScrollMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKScrollMenu.swift; sourceTree = "<group>"; };
+		50D51D1D1DF5CC4600C82F6E /* SKVerticalScrollMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKVerticalScrollMenu.swift; sourceTree = "<group>"; };
 		50E625021DF05FF000EBAAF6 /* Mineable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mineable.swift; sourceTree = "<group>"; };
 		50E625061DF06FA100EBAAF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,7 +194,7 @@
 			children = (
 				50D51D1B1DF5C35F00C82F6E /* Sidebar.swift */,
 				506A57F91DF2002900446B65 /* SKButton.swift */,
-				50D51D1D1DF5CC4600C82F6E /* SKScrollMenu.swift */,
+				50D51D1D1DF5CC4600C82F6E /* SKVerticalScrollMenu.swift */,
 				50D51D021DF5A1CC00C82F6E /* TitleUI.swift */,
 				506A57F71DF2000900446B65 /* MiningUI.swift */,
 			);
@@ -224,6 +226,7 @@
 			children = (
 				50A72BD41DEF3C6A003460A2 /* Game.swift */,
 				50D51D181DF5C04D00C82F6E /* Inventory.swift */,
+				501AD8291DF5E16F00F217B9 /* Stocks.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				TargetAttributes = {
 					50A72B971DEF3A2D003460A2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4NR4784MG2;
 					};
 					50A72BAF1DEF3A2D003460A2 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -365,6 +369,7 @@
 			files = (
 				50A72BDE1DEF3C6A003460A2 /* GameViewController.swift in Sources */,
 				50A72BDD1DEF3C6A003460A2 /* AppDelegate.swift in Sources */,
+				501AD82A1DF5E16F00F217B9 /* Stocks.swift in Sources */,
 				50E625031DF05FF000EBAAF6 /* Mineable.swift in Sources */,
 				50A72BD91DEF3C6A003460A2 /* MiningScene.swift in Sources */,
 				50D51D191DF5C04D00C82F6E /* Inventory.swift in Sources */,
@@ -379,7 +384,7 @@
 				50D51D161DF5BC2300C82F6E /* MineableType.swift in Sources */,
 				50D51D0E1DF5ABD400C82F6E /* Underground.swift in Sources */,
 				506A57F81DF2000900446B65 /* MiningUI.swift in Sources */,
-				50D51D1E1DF5CC4600C82F6E /* SKScrollMenu.swift in Sources */,
+				50D51D1E1DF5CC4600C82F6E /* SKVerticalScrollMenu.swift in Sources */,
 				50D51D1C1DF5C35F00C82F6E /* Sidebar.swift in Sources */,
 				50A72BDA1DEF3C6A003460A2 /* TitleScene.swift in Sources */,
 			);
@@ -518,10 +523,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MiniMiner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pixelaborate.MiniMiner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -531,10 +539,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MiniMiner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pixelaborate.MiniMiner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

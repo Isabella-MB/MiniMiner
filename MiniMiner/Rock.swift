@@ -37,6 +37,7 @@ class Rock: SKSpriteNode{
         super.init(texture: texture, color: UIColor.whiteColor(), size: CGSize(width: tileWidth, height: tileHeight))
         
         self.position = CGPoint(x: position.x * tileWidth + tileWidth / 2, y: position.y * tileHeight + tileHeight / 2)
+        self.setScale(1.01)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
     }
     

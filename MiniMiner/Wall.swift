@@ -18,12 +18,14 @@ class Wall : SKNode{
     private var mineables: [Mineable]
     
     private var durability: Int
+    private var wallBroke: Bool
     
     override init()
     {
         rocks = [[Rock]]()
         mineables = [Mineable]()
         durability = 100
+        wallBroke = false
         
         super.init()
         
@@ -44,14 +46,37 @@ class Wall : SKNode{
     {
         mineableRevealed(game.inventory)
         
-        if(durability < 0)
+        if(durability <= 0 && !wallBroke)
         {
-            game.ChangeScene(UndergroundScene(game), transition: SKTransition.fadeWithDuration(3))
+            let amplitude = CGVector(dx: 10, dy: 10)
+            let numberOfShakes = 10
+            
+            var shakes = [SKAction]()
+            
+            for _ in 0..<numberOfShakes {
+                let moveX = CGFloat(arc4random_uniform(UInt32(amplitude.dx))) - amplitude.dx / 2;
+                let moveY = CGFloat(arc4random_uniform(UInt32(amplitude.dy))) - amplitude.dy / 2;
+                let oneShake = SKAction.moveByX(moveX, y: moveY, duration: 0.02);
+                oneShake.timingMode = SKActionTimingMode.EaseOut;
+                shakes.append(oneShake);
+                shakes.append(oneShake.reversedAction());
+            }
+            
+            let wait = SKAction.waitForDuration(0.5)
+            let shake = SKAction.sequence(shakes)
+            
+            let sequence = SKAction.sequence([wait, shake])
+            runAction(sequence, completion: {game.ChangeScene(UndergroundScene(game), transition: SKTransition.fadeWithDuration(0.3))})
+            
+            wallBroke = true
         }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in touches{
+        
+        if(durability > 0)
+        {
+            for touch in touches{
             let loc = touch.locationInNode(self)
             
             let x: Int = Int(loc.x / tileWidth)
@@ -61,41 +86,42 @@ class Wall : SKNode{
             
             durability -= 1
             
-            if(miningMode == .hammer)
-            {
-                durability -= 6
-                
-                if(x < numberOfCols - 1)
+                if(miningMode == .hammer)
                 {
-                    rocks[x + 1][y].breakRock()
-                }
-                if(y < numberOfRows - 1)
-                {
-                    rocks[x][y + 1].breakRock()
-                }
-                if(x < numberOfCols - 1 && y < numberOfRows - 1)
-                {
-                    rocks[x + 1][y + 1].breakRock()
-                }
-                if(x < numberOfCols - 1 && y > 0)
-                {
-                    rocks[x + 1][y - 1].breakRock()
-                }
-                if(x > 0)
-                {
-                    rocks[x - 1][y].breakRock()
-                }
-                if(y > 0)
-                {
-                    rocks[x][y - 1].breakRock()
-                }
-                if(x > 0 && y > 0)
-                {
-                    rocks[x - 1][y - 1].breakRock()
-                }
-                if(x > 0 && y < numberOfRows - 1)
-                {
-                    rocks[x - 1][y + 1].breakRock()
+                    durability -= 6
+                    
+                    if(x < numberOfCols - 1)
+                    {
+                        rocks[x + 1][y].breakRock()
+                    }
+                    if(y < numberOfRows - 1)
+                    {
+                        rocks[x][y + 1].breakRock()
+                    }
+                    if(x < numberOfCols - 1 && y < numberOfRows - 1)
+                    {
+                        rocks[x + 1][y + 1].breakRock()
+                    }
+                    if(x < numberOfCols - 1 && y > 0)
+                    {
+                        rocks[x + 1][y - 1].breakRock()
+                    }
+                    if(x > 0)
+                    {
+                        rocks[x - 1][y].breakRock()
+                    }
+                    if(y > 0)
+                    {
+                        rocks[x][y - 1].breakRock()
+                    }
+                    if(x > 0 && y > 0)
+                    {
+                        rocks[x - 1][y - 1].breakRock()
+                    }
+                    if(x > 0 && y < numberOfRows - 1)
+                    {
+                        rocks[x - 1][y + 1].breakRock()
+                    }
                 }
             }
         }

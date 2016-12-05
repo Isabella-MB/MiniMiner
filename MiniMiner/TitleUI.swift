@@ -28,7 +28,7 @@ class TitleUI{
     {
         if(startButton.selected)
         {
-            game.ChangeScene(UndergroundScene(game), transition: SKTransition.crossFadeWithDuration(3))
+            game.ChangeScene(UndergroundScene(game), transition: SKTransition.crossFadeWithDuration(0.3))
         }
     }
     

@@ -35,6 +35,8 @@ class Game{
         
         inventory = Inventory()
         
+        Stocks.instance.getStock()
+        
         ChangeScene(TitleScene(self), transition: SKTransition.pushWithDirection(.Left, duration: 0.4))
     }
     
