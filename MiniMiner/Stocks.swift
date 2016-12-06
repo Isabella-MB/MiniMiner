@@ -9,23 +9,35 @@
 import Foundation
 import SpriteKit
 
-class Stocks{
-    class var instance : Stocks {
-        struct Static {
-            static let instance : Stocks = Stocks()
+class StockManager{
+    var stockStrings: [String] = []
+    var stocks: [Stock] = []
+    
+    func loadStocks(){
+        if let path = NSBundle.mainBundle().pathForResource("Stocks", ofType: "txt")
+        {
+            do{
+                let content = try String(contentsOfFile:path, encoding: NSUTF8StringEncoding)
+                
+                content.enumerateLines { self.stockStrings.append($0.line) }
+                
+            } catch _ as NSError {
+                return
+            }
         }
-        return Static.instance
     }
     
-    func getStock()
+    func setRandomStocks()
     {
-        let urlString:String = ("http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.quotes where symbol IN +(\"AAPL\")+&format=json&env=http://datatables.org/alltables.env").stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        let stockName = stockStrings[Int(arc4random_uniform(UInt32(stockStrings.count)))]
+        
+        let urlString:String = ("http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.quotes where symbol IN +(\"" + stockName + "\")+&format=json&env=http://datatables.org/alltables.env").stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
         
         let url = NSURL(string: urlString)
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         
-        var quotes: AnyObject?
+        var stock: Stock?
         
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
             
@@ -35,8 +47,25 @@ class Stocks{
             else{
                 do{
                     let jsonDict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                    quotes = jsonDict.objectForKey("query")!.objectForKey("results")!.objectForKey("quote")!.objectForKey("Ask")!
-                    print(quotes)
+                    let quotes = jsonDict.objectForKey("query")!.objectForKey("results")!.objectForKey("quote")!
+                    
+                    stock = Stock(change: 0, previousClose: 0, name: stockName)
+                    
+                    if let changeString = quotes.objectForKey("Change") as? String
+                    {
+                        if let change = Float(changeString){
+                            stock!.change = change
+                        }
+                    }
+                    
+                    if let previousCloseString = quotes.objectForKey("PreviousClose") as? String
+                    {
+                        if let previousClose = Float(previousCloseString){
+                            stock!.previousClose = previousClose
+                        }
+                    }
+                    
+                    print(stock!)
                 }
                 catch let jsonError as NSError {
                     print(jsonError.localizedDescription)
@@ -46,4 +75,14 @@ class Stocks{
         
         task.resume()
     }
+    
+    func unloadStocks() {
+        stockStrings = []
+    }
+}
+
+struct Stock{
+    var change: Float
+    var previousClose: Float
+    var name: String
 }
