@@ -19,7 +19,7 @@ class Sparkle: SKSpriteNode
         let frame2 = SKTexture(imageNamed: "Sparkle2")
         touched = false
         
-        super.init(texture: frame1, color: UIColor.whiteColor(), size: CGSize(width: 30, height: 30))
+        super.init(texture: frame1, color: UIColor.whiteColor(), size: CGSize(width: 60, height: 60))
         
         self.position = position
         self.zPosition = -1

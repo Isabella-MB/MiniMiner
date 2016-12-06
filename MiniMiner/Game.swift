@@ -22,6 +22,7 @@ class Game{
     
     let skView : SKView
     let inventory : Inventory
+    let stockManager: StockManager
     
     var currentScene : SKScene!
     var previousScene : SKScene!
@@ -34,8 +35,9 @@ class Game{
         skView.multipleTouchEnabled = false;
         
         inventory = Inventory()
+        stockManager = StockManager()
         
-        Stocks.instance.getStock()
+        stockManager.loadStocks()
         
         ChangeScene(TitleScene(self), transition: SKTransition.pushWithDirection(.Left, duration: 0.4))
     }

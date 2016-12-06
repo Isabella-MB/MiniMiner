@@ -11,6 +11,7 @@
 		506A57F61DF1FF8C00446B65 /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 506A57F51DF1FF8C00446B65 /* UI.atlas */; };
 		506A57F81DF2000900446B65 /* MiningUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F71DF2000900446B65 /* MiningUI.swift */; };
 		506A57FA1DF2002900446B65 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F91DF2002900446B65 /* SKButton.swift */; };
+		5078C7A11DF61FD000021D76 /* Stocks.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5078C7A01DF61FD000021D76 /* Stocks.txt */; };
 		50A72BAA1DEF3A2D003460A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A72BA81DEF3A2D003460A2 /* LaunchScreen.storyboard */; };
 		50A72BB51DEF3A2D003460A2 /* MiniMinerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BB41DEF3A2D003460A2 /* MiniMinerTests.swift */; };
 		50A72BC01DEF3A2D003460A2 /* MiniMinerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A72BBF1DEF3A2D003460A2 /* MiniMinerUITests.swift */; };
@@ -60,6 +61,7 @@
 		506A57F51DF1FF8C00446B65 /* UI.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = UI.atlas; sourceTree = "<group>"; };
 		506A57F71DF2000900446B65 /* MiningUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiningUI.swift; sourceTree = "<group>"; };
 		506A57F91DF2002900446B65 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
+		5078C7A01DF61FD000021D76 /* Stocks.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Stocks.txt; sourceTree = "<group>"; };
 		50A72B981DEF3A2D003460A2 /* MiniMiner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniMiner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A72BA91DEF3A2D003460A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50A72BAB1DEF3A2D003460A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				50E625061DF06FA100EBAAF6 /* Assets.xcassets */,
+				5078C7A01DF61FD000021D76 /* Stocks.txt */,
 				50D51D111DF5B07E00C82F6E /* Sparkle.atlas */,
 				50D51D0B1DF5AB7F00C82F6E /* Mineables.atlas */,
 				506A57F51DF1FF8C00446B65 /* UI.atlas */,
@@ -343,6 +346,7 @@
 				50D51D0C1DF5AB7F00C82F6E /* Mineables.atlas in Resources */,
 				50D51D121DF5B07E00C82F6E /* Sparkle.atlas in Resources */,
 				50A72BAA1DEF3A2D003460A2 /* LaunchScreen.storyboard in Resources */,
+				5078C7A11DF61FD000021D76 /* Stocks.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
