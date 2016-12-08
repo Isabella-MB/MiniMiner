@@ -19,16 +19,16 @@ class GameViewController: UIViewController {
         game = Game(view: self.view)
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Landscape
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return .landscape
     }
 
     override func didReceiveMemoryWarning() {

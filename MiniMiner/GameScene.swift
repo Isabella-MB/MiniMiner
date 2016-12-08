@@ -23,7 +23,7 @@ class GameScene : SKScene{
         
         super.init(size: CGSize(width: 1280, height: 720))
         
-        scaleMode = .Fill
+        scaleMode = .fill
         addChild(mainLayer)
     }
 }

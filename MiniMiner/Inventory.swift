@@ -16,7 +16,7 @@ class Inventory{
         collectedMineables = [MineableType]()
     }
     
-    func addMineable(mineable: MineableType)
+    func addMineable(_ mineable: MineableType)
     {
         collectedMineables.append(mineable)
     }

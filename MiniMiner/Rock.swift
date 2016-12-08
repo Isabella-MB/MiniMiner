@@ -34,7 +34,7 @@ class Rock: SKSpriteNode{
         rockType = type
         
         let texture = SKTexture(imageNamed: rockType.spriteName) 
-        super.init(texture: texture, color: UIColor.whiteColor(), size: CGSize(width: tileWidth, height: tileHeight))
+        super.init(texture: texture, color: UIColor.white, size: CGSize(width: tileWidth, height: tileHeight))
         
         self.position = CGPoint(x: position.x * tileWidth + tileWidth / 2, y: position.y * tileHeight + tileHeight / 2)
         self.setScale(1.01)
@@ -62,11 +62,11 @@ class Rock: SKSpriteNode{
         particleEmitter.particleSize = CGSize(width: 60, height: 60)
         particleEmitter.zPosition = 2
         
-        let wait = SKAction.waitForDuration(1)
+        let wait = SKAction.wait(forDuration: 1)
         let remove = SKAction.removeFromParent()
         let sequence = SKAction.sequence([wait, remove])
         
-        particleEmitter.runAction(sequence)
+        particleEmitter.run(sequence)
         
         parent?.addChild(particleEmitter)
         

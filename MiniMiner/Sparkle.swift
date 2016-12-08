@@ -19,25 +19,25 @@ class Sparkle: SKSpriteNode
         let frame2 = SKTexture(imageNamed: "Sparkle2")
         touched = false
         
-        super.init(texture: frame1, color: UIColor.whiteColor(), size: CGSize(width: 60, height: 60))
+        super.init(texture: frame1, color: UIColor.white, size: CGSize(width: 60, height: 60))
         
         self.position = position
         self.zPosition = -1
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
         
-        let wait = SKAction.waitForDuration(5)
+        let wait = SKAction.wait(forDuration: 5)
         let destroy = SKAction.removeFromParent()
         let sequence = SKAction.sequence([wait, destroy])
         
-        runAction(SKAction.repeatActionForever(SKAction.animateWithTextures([frame1, frame2], timePerFrame: 0.1)))
-        runAction(sequence)
+        run(SKAction.repeatForever(SKAction.animate(with: [frame1, frame2], timePerFrame: 0.1)))
+        run(sequence)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         touched = true
     }
 }

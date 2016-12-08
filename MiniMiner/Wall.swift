@@ -14,11 +14,11 @@ class Wall : SKNode{
     let numberOfCols = 16
     let numberOfRows = 12
     
-    private var rocks: [[Rock]]
-    private var mineables: [Mineable]
+    fileprivate var rocks: [[Rock]]
+    fileprivate var mineables: [Mineable]
     
-    private var durability: Int
-    private var wallBroke: Bool
+    fileprivate var durability: Int
+    fileprivate var wallBroke: Bool
     
     override init()
     {
@@ -29,7 +29,7 @@ class Wall : SKNode{
         
         super.init()
         
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
         
         placeRocks()
         placeMineables()
@@ -42,7 +42,7 @@ class Wall : SKNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(game: Game)
+    func update(_ game: Game)
     {
         mineableRevealed(game.inventory)
         
@@ -56,28 +56,28 @@ class Wall : SKNode{
             for _ in 0..<numberOfShakes {
                 let moveX = CGFloat(arc4random_uniform(UInt32(amplitude.dx))) - amplitude.dx / 2;
                 let moveY = CGFloat(arc4random_uniform(UInt32(amplitude.dy))) - amplitude.dy / 2;
-                let oneShake = SKAction.moveByX(moveX, y: moveY, duration: 0.02);
-                oneShake.timingMode = SKActionTimingMode.EaseOut;
+                let oneShake = SKAction.moveBy(x: moveX, y: moveY, duration: 0.02);
+                oneShake.timingMode = SKActionTimingMode.easeOut;
                 shakes.append(oneShake);
-                shakes.append(oneShake.reversedAction());
+                shakes.append(oneShake.reversed());
             }
             
-            let wait = SKAction.waitForDuration(0.5)
+            let wait = SKAction.wait(forDuration: 0.5)
             let shake = SKAction.sequence(shakes)
             
             let sequence = SKAction.sequence([wait, shake])
-            runAction(sequence, completion: {game.ChangeScene(UndergroundScene(game), transition: SKTransition.fadeWithDuration(0.3))})
+            run(sequence, completion: {game.ChangeScene(UndergroundScene(game), transition: SKTransition.fade(withDuration: 0.3))})
             
             wallBroke = true
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if(durability > 0)
         {
             for touch in touches{
-            let loc = touch.locationInNode(self)
+            let loc = touch.location(in: self)
             
             let x: Int = Int(loc.x / tileWidth)
             let y: Int = Int(loc.y / tileHeight)
@@ -127,7 +127,7 @@ class Wall : SKNode{
         }
     }
     
-    func mineableRevealed(inventory : Inventory)
+    func mineableRevealed(_ inventory : Inventory)
     {
         for mineable in mineables{
             var revealed = true
@@ -186,7 +186,7 @@ class Wall : SKNode{
         }
     }
     
-    func canPlaceMineableAt(point: CGPoint, type: MineableType)->Bool{
+    func canPlaceMineableAt(_ point: CGPoint, type: MineableType)->Bool{
         // Tests to see if the newly placed mineable overlaps with an old mineable
         for mineable in mineables{
             for oldMineableCoordinate in mineable.mineableType.coordinates{

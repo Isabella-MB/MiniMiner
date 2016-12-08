@@ -32,17 +32,17 @@ class Game{
         skView = view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
-        skView.multipleTouchEnabled = false;
+        skView.isMultipleTouchEnabled = false;
         
         inventory = Inventory()
         stockManager = StockManager()
         
         stockManager.loadStocks()
         
-        ChangeScene(TitleScene(self), transition: SKTransition.pushWithDirection(.Left, duration: 0.4))
+        ChangeScene(TitleScene(self), transition: SKTransition.push(with: .left, duration: 0.4))
     }
     
-    func ChangeScene(newScene : SKScene, transition: SKTransition)
+    func ChangeScene(_ newScene : SKScene, transition: SKTransition)
     {
         previousScene = currentScene
         currentScene = newScene
