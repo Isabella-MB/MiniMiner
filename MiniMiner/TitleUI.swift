@@ -29,11 +29,11 @@ class TitleUI{
         uiLayer.addChild(stockButton)
     }
     
-    func update(game: Game)
+    func update(_ game: Game)
     {
         if(startButton.selected)
         {
-            game.ChangeScene(UndergroundScene(game), transition: SKTransition.crossFadeWithDuration(0.3))
+            game.ChangeScene(UndergroundScene(game), transition: SKTransition.crossFade(withDuration: 0.3))
         }
         
         if(stockButton.selected)

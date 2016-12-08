@@ -23,24 +23,24 @@ class Mineable: SKSpriteNode {
         let texture = SKTexture(imageNamed: mineableType.name)
         coordinates = position
         
-        super.init(texture: texture, color: UIColor.whiteColor(), size: mineableType.size)
+        super.init(texture: texture, color: UIColor.white, size: mineableType.size)
         
         self.position = CGPoint(x: position.x * tileWidth + mineableType.size.width / 2, y: position.y * tileHeight + mineableType.size.height / 2)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.zPosition = -1
     }
     
-    func reveal(inventory: Inventory)
+    func reveal(_ inventory: Inventory)
     {
         if(!revealed){
-            let bulge = SKAction.scaleTo(1.1, duration: 0.05)
-            let shrink = SKAction.scaleTo(0, duration: 1)
+            let bulge = SKAction.scale(to: 1.1, duration: 0.05)
+            let shrink = SKAction.scale(to: 0, duration: 1)
             let destroy = SKAction.removeFromParent()
             let sequence = SKAction.sequence([bulge, shrink, destroy])
             
             self.zPosition = 1
             
-            runAction(sequence)
+            run(sequence)
             
             inventory.addMineable(mineableType)
             

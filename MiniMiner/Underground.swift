@@ -31,7 +31,7 @@ class Underground : SKNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(game: Game)
+    func update(_ game: Game)
     {
         CreateSparkles()
         
@@ -39,7 +39,7 @@ class Underground : SKNode{
         {
             if(sparkle.touched)
             {
-                game.ChangeScene(MiningScene(game), transition: SKTransition.doorsOpenHorizontalWithDuration(2))
+                game.ChangeScene(MiningScene(game), transition: SKTransition.doorsOpenHorizontal(withDuration: 2))
             }
         }
     }

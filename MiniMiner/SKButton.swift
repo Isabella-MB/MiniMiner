@@ -20,14 +20,14 @@ class SKButton: SKSpriteNode{
     
     init(position: CGPoint, texture : SKTexture!, size: CGSize) {
         
-        super.init(texture: texture, color: UIColor.whiteColor(), size: size)
+        super.init(texture: texture, color: UIColor.white, size: size)
         
         self.position = position
         
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent!)  {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent!)  {
         
         if (!enabled) {
             return
@@ -35,16 +35,16 @@ class SKButton: SKSpriteNode{
         
         selected = true
         
-        runAction(SKAction.colorizeWithColor(UIColor.greenColor(), colorBlendFactor: 0.5, duration: 0.01))
+        run(SKAction.colorize(with: UIColor.green, colorBlendFactor: 0.5, duration: 0.01))
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent!) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent!) {
         
         if (!enabled) {
             return
         }
         selected = false
-        runAction(SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1, duration: 0.01))
+        run(SKAction.colorize(with: UIColor.white, colorBlendFactor: 1, duration: 0.01))
     }
     
 }

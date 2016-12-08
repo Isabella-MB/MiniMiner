@@ -21,10 +21,28 @@ enum MineableType: Int{
     }
     
     var coordinates: [CGPoint]{
-        let coordinates = [
-            [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: 1), CGPoint(x: 1, y: 1)],
-            [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 0), CGPoint(x: 3, y: 0), CGPoint(x: 4, y: 0), CGPoint(x: 0, y: 1), CGPoint(x: 0, y: 2), CGPoint(x: 0, y: 3), CGPoint(x: 0, y: 4), CGPoint(x: 4, y: 1), CGPoint(x: 4, y: 2), CGPoint(x: 4, y: 3), CGPoint(x: 4, y: 4), CGPoint(x: 1, y: 4), CGPoint(x: 2, y: 4), CGPoint(x: 3, y: 4)]
-        ]
+        
+        let pokeCoords = [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: 1), CGPoint(x: 1, y: 1)]
+        
+        var gemCoords = [CGPoint]()
+            gemCoords.append(CGPoint(x: 0, y: 0))
+            gemCoords.append(CGPoint(x: 1, y: 0))
+            gemCoords.append(CGPoint(x: 2, y: 0))
+            gemCoords.append(CGPoint(x: 3, y: 0))
+            gemCoords.append(CGPoint(x: 4, y: 0))
+            gemCoords.append(CGPoint(x: 0, y: 1))
+            gemCoords.append(CGPoint(x: 0, y: 2))
+            gemCoords.append(CGPoint(x: 0, y: 3))
+            gemCoords.append(CGPoint(x: 0, y: 4))
+            gemCoords.append(CGPoint(x: 4, y: 1))
+            gemCoords.append(CGPoint(x: 4, y: 2))
+            gemCoords.append(CGPoint(x: 4, y: 3))
+            gemCoords.append(CGPoint(x: 4, y: 4))
+            gemCoords.append(CGPoint(x: 1, y: 4))
+            gemCoords.append(CGPoint(x: 2, y: 4))
+            gemCoords.append(CGPoint(x: 3, y: 4))
+        
+        let coordinates = [pokeCoords, gemCoords]
         
         return coordinates[rawValue]
     }
@@ -51,7 +69,7 @@ enum MineableType: Int{
     }
     
     
-    private static let count: MineableType.RawValue = {
+    fileprivate static let count: MineableType.RawValue = {
         // find the maximum enum value
         var maxValue: Int = 0
         while let _ = MineableType(rawValue: maxValue) {

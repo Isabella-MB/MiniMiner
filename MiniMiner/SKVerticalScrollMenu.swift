@@ -44,24 +44,24 @@ class SKVerticalScrollMenu : SKCropNode{
         let mask = SKTexture()
         maskNode = SKSpriteNode(texture: mask, size: size)
         
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
-        let location = touch?.locationInNode(self)
+        let location = touch?.location(in: self)
         
         yStart = location!.y
         yLast = location!.y
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
-        let location = touch?.locationInNode(self)
+        let location = touch?.location(in: self)
         
         let yDelta = (location!.y - yLast) * scrollSpeed
         
