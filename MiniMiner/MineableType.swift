@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 enum MineableType: Int{
-    case poke, gem, blueGem, brownGem, darkBlueGem, darkRedGem, greenGem, orangeGem, pinkGem, redGem, yellowGem
+    case poke = 0, gem, blueGem, brownGem, darkBlueGem, darkRedGem, greenGem, orangeGem, pinkGem, redGem, yellowGem
     
     var name: String {
         let names = [
@@ -64,7 +64,7 @@ enum MineableType: Int{
         
         let coordinates = [pokeCoords, gemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords]
         
-        return coordinates[rawValue]
+        return coordinates[rawValue] 
     }
 
     var value: Int{
