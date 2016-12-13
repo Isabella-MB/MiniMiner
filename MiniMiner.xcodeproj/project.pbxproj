@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		501AD82A1DF5E16F00F217B9 /* Stocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501AD8291DF5E16F00F217B9 /* Stocks.swift */; };
+		5063AF391DFB1E73003DA7A3 /* InventoryMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063AF381DFB1E73003DA7A3 /* InventoryMenuItem.swift */; };
 		506A57F61DF1FF8C00446B65 /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 506A57F51DF1FF8C00446B65 /* UI.atlas */; };
 		506A57F81DF2000900446B65 /* MiningUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F71DF2000900446B65 /* MiningUI.swift */; };
 		506A57FA1DF2002900446B65 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A57F91DF2002900446B65 /* SKButton.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		501AD8291DF5E16F00F217B9 /* Stocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stocks.swift; sourceTree = "<group>"; };
+		5063AF381DFB1E73003DA7A3 /* InventoryMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryMenuItem.swift; sourceTree = "<group>"; };
 		506A57F51DF1FF8C00446B65 /* UI.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = UI.atlas; sourceTree = "<group>"; };
 		506A57F71DF2000900446B65 /* MiningUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiningUI.swift; sourceTree = "<group>"; };
 		506A57F91DF2002900446B65 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				50D51D1B1DF5C35F00C82F6E /* Sidebar.swift */,
 				506A57F91DF2002900446B65 /* SKButton.swift */,
 				50D51D1D1DF5CC4600C82F6E /* SKVerticalScrollMenu.swift */,
+				5063AF381DFB1E73003DA7A3 /* InventoryMenuItem.swift */,
 				50D51D021DF5A1CC00C82F6E /* TitleUI.swift */,
 				506A57F71DF2000900446B65 /* MiningUI.swift */,
 			);
@@ -385,6 +388,7 @@
 				506A57FA1DF2002900446B65 /* SKButton.swift in Sources */,
 				50A72BE01DEF3C92003460A2 /* Wall.swift in Sources */,
 				50D51D031DF5A1CC00C82F6E /* TitleUI.swift in Sources */,
+				5063AF391DFB1E73003DA7A3 /* InventoryMenuItem.swift in Sources */,
 				50D51D091DF5A94A00C82F6E /* UndergroundScene.swift in Sources */,
 				50D51D101DF5AF3900C82F6E /* Sparkle.swift in Sources */,
 				50A72BDB1DEF3C6A003460A2 /* GameScene.swift in Sources */,

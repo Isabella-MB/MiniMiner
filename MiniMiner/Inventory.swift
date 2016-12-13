@@ -9,15 +9,18 @@
 import Foundation
 
 class Inventory{
-    var collectedMineables: [MineableType]
+    var collectedMineables: [MineableType: Int]
     
     init()
     {
-        collectedMineables = [MineableType]()
+        collectedMineables = [MineableType: Int]()
+        for i in 0..<MineableType.count{
+            collectedMineables[MineableType(rawValue: i)!] = 1
+        }
     }
     
     func addMineable(_ mineable: MineableType)
     {
-        collectedMineables.append(mineable)
+        collectedMineables[mineable]! += 1
     }
 }

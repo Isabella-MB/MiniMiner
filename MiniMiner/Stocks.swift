@@ -19,7 +19,6 @@ extension String {
 
 class StockManager{
     var stockStrings: [String] = []
-    var stocks: [Stock] = []
     
     func loadStocks(){
         if let path = Bundle.main.path(forResource: "Stocks", ofType: "txt")
@@ -35,7 +34,7 @@ class StockManager{
         }
     }
     
-    func setRandomStocks()
+    func getRandomStock() -> Stock
     {
         let stockName = stockStrings[Int(arc4random_uniform(UInt32(stockStrings.count)))]
         
@@ -73,7 +72,9 @@ class StockManager{
                         }
                     }
                     
-                    print(stock!)
+                    if(stock!.change == 0 || stock!.previousClose == 0){
+                        self.getRandomStock()
+                    }
                 }
                 catch let jsonError as NSError {
                     print(jsonError.localizedDescription)
@@ -82,6 +83,8 @@ class StockManager{
         })
         
         task.resume()
+        
+        return stock!
     }
     
     func unloadStocks() {

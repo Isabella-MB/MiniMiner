@@ -14,11 +14,15 @@ class SKButton: SKSpriteNode{
     var enabled: Bool = true
     var selected: Bool = false
     
+    var pressedCallback: () -> ()
+
     required init(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
     init(position: CGPoint, texture : SKTexture!, size: CGSize) {
+        
+        pressedCallback = {() -> () in }
         
         super.init(texture: texture, color: UIColor.white, size: size)
         
@@ -34,6 +38,8 @@ class SKButton: SKSpriteNode{
         }
         
         selected = true
+        
+        pressedCallback()
         
         run(SKAction.colorize(with: UIColor.green, colorBlendFactor: 0.5, duration: 0.01))
     }

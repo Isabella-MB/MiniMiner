@@ -19,22 +19,21 @@ class Sidebar: SKNode{
         sidebar.anchorPoint = CGPoint(x: 0, y: 0)
         sidebar.zPosition = -20
         
-        var itemLabels = [SKLabelNode]()
+        var menuItems = [InventoryMenuItem]()
         
-        for collectedMineables in inventory.collectedMineables{
-            itemLabels.append(SKLabelNode(text: collectedMineables.name))
-        }
+        var menuItemPosition = CGPoint(x: 0, y: 0)
         
-        var itemLabelPosition = CGPoint(x: 0, y: -60)
-        for itemLabel in itemLabels{
-            itemLabel.position = itemLabelPosition
-            itemLabelPosition.y -= 60
+        for i in 0..<MineableType.count{
             
-            itemLabel.fontName = "Arial Black"
-            itemLabel.fontSize = 60
+            let mineable = MineableType(rawValue: i)!
+            
+            if(inventory.collectedMineables[mineable]! > 0){
+                menuItemPosition.y -= 60
+                menuItems.append(InventoryMenuItem(position: menuItemPosition, mineableType: mineable, numberOfItems: inventory.collectedMineables[mineable]!))
+            }
         }
         
-        itemMenu = SKVerticalScrollMenu(position: CGPoint(x: 120, y: 720), size: CGSize(width: 320, height: 400), childNodes: itemLabels)
+        itemMenu = SKVerticalScrollMenu(position: CGPoint(x: 120, y: 600), size: CGSize(width: 320, height: 200), childNodes: menuItems)
         
         super.init()
     

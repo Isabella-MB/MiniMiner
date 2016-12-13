@@ -10,12 +10,21 @@ import Foundation
 import SpriteKit
 
 enum MineableType: Int{
-    case poke, gem
+    case poke = 0, gem, blueGem, brownGem, darkBlueGem, darkRedGem, greenGem, orangeGem, pinkGem, redGem, yellowGem
     
     var name: String {
         let names = [
             "Poke",
-            "Gem"]
+            "Gem",
+            "BlueGem",
+            "BrownGem",
+            "DarkBlueGem",
+            "DarkRedGem",
+            "GreenGem",
+            "OrangeGem",
+            "PinkGem",
+            "RedGem",
+            "YellowGem"]
         
         return names[rawValue]
     }
@@ -42,14 +51,25 @@ enum MineableType: Int{
             gemCoords.append(CGPoint(x: 2, y: 4))
             gemCoords.append(CGPoint(x: 3, y: 4))
         
-        let coordinates = [pokeCoords, gemCoords]
+        var coloredGemCoords = [CGPoint]()
+        coloredGemCoords.append(CGPoint(x: 0, y: 0))
+        coloredGemCoords.append(CGPoint(x: 1, y: 0))
+        coloredGemCoords.append(CGPoint(x: 2, y: 0))
+        coloredGemCoords.append(CGPoint(x: 0, y: 1))
+        coloredGemCoords.append(CGPoint(x: 1, y: 1))
+        coloredGemCoords.append(CGPoint(x: 2, y: 1))
+        coloredGemCoords.append(CGPoint(x: 0, y: 2))
+        coloredGemCoords.append(CGPoint(x: 1, y: 2))
+        coloredGemCoords.append(CGPoint(x: 2, y: 2))
         
-        return coordinates[rawValue]
+        let coordinates = [pokeCoords, gemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords, coloredGemCoords]
+        
+        return coordinates[rawValue] 
     }
 
     var value: Int{
         let value = [
-            200, 400
+            200, 400, 100, 100, 100, 100, 100, 100, 100, 100, 100
         ]
         
         return value[rawValue]
@@ -69,7 +89,7 @@ enum MineableType: Int{
     }
     
     
-    fileprivate static let count: MineableType.RawValue = {
+    static let count: MineableType.RawValue = {
         // find the maximum enum value
         var maxValue: Int = 0
         while let _ = MineableType(rawValue: maxValue) {

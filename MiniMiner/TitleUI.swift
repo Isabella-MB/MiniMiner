@@ -35,11 +35,6 @@ class TitleUI{
         {
             game.ChangeScene(UndergroundScene(game), transition: SKTransition.crossFade(withDuration: 0.3))
         }
-        
-        if(stockButton.selected)
-        {
-            game.stockManager.setRandomStocks()
-        }
     }
     
 }
