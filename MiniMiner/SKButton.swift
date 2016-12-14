@@ -24,7 +24,8 @@ class SKButton: SKSpriteNode{
         
         pressedCallback = {() -> () in }
         
-        super.init(texture: texture, color: UIColor.white, size: size)
+        super.init(texture: texture, color: UIColor.black, size: size)
+        zPosition = 0;
         
         self.position = position
         

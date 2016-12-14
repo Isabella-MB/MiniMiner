@@ -13,24 +13,19 @@ class InventoryMenuItem : SKNode{
     
     let itemImage: SKSpriteNode
     let itemLabel: SKLabelNode
-    let background: SKSpriteNode
     
-    init(position: CGPoint, mineableType: MineableType, numberOfItems: Int)
+    init(mineableType: MineableType, numberOfItems: Int)
     {
         itemLabel = SKLabelNode(text: "x" + String(numberOfItems))
         itemLabel.fontSize = 60
+        itemLabel.position = CGPoint(x: 45, y: -45)
         itemImage = SKSpriteNode(imageNamed: mineableType.name)
         itemImage.size = CGSize(width: 60, height: 60)
-        
-        background = SKSpriteNode(texture: SKTexture(), size: CGSize(width: 320, height: 60))
-        background.zPosition = -4
+        itemImage.position = CGPoint(x: 0, y: -30)
         
         super.init()
         
-        self.position = position;
-        
         addChild(itemLabel)
-        addChild(background)
         addChild(itemImage)
     }
     

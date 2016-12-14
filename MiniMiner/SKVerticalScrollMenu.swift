@@ -20,6 +20,8 @@ class SKVerticalScrollMenu : SKCropNode{
 
     let scrollLayer: SKSpriteNode
     
+    var touchedUpInside: Bool
+    
     init(position: CGPoint, size: CGSize, childNodes: [SKNode])
     {
         yStart = 0
@@ -27,22 +29,26 @@ class SKVerticalScrollMenu : SKCropNode{
         scrollSpeed = 1.0
         maskSize = size
         scrollLayer = SKSpriteNode(texture: nil, size: size)
+        touchedUpInside = false
         
+        var height = CGFloat(0);
         for child in childNodes{
+            child.position.y = -height;
             scrollLayer.addChild(child)
+            
+            height += child.calculateAccumulatedFrame().height
         }
         
-        let height = scrollLayer.calculateAccumulatedFrame().height
-        totalSize = CGSize(width: size.width, height: height)
-        
+        let frameHeight = scrollLayer.calculateAccumulatedFrame().height
+        totalSize = CGSize(width: size.width, height: frameHeight)
+    
         super.init()
         
         self.position = position
         
         addChild(scrollLayer)
         
-        let mask = SKTexture()
-        let maskSprite = SKSpriteNode(texture: mask, size: size)
+        let maskSprite = SKSpriteNode(texture: SKTexture(), size: size)
         maskSprite.anchorPoint = CGPoint(x: 0.5, y: 1)
         maskNode = maskSprite
         
@@ -55,10 +61,12 @@ class SKVerticalScrollMenu : SKCropNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
-        let location = touch?.location(in: self)
-        
-        yStart = location!.y
-        yLast = location!.y
+        if let location = touch?.location(in: self){
+            touchedUpInside = (maskNode?.contains(location))!
+            
+            yStart = location.y
+            yLast = location.y
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -67,16 +75,19 @@ class SKVerticalScrollMenu : SKCropNode{
         
         let yDelta = (location!.y - yLast) * scrollSpeed
         
-        if(scrollLayer.position.y + yDelta > 0 && scrollLayer.position.y + yDelta < totalSize.height - maskSize.height){
-            scrollLayer.position.y += yDelta
+        if(touchedUpInside){
+            
+            if(scrollLayer.position.y + yDelta > 0 && scrollLayer.position.y + yDelta < totalSize.height - maskSize.height){
+                scrollLayer.position.y += yDelta
+            }
+            else if(scrollLayer.position.y + yDelta < 0){
+                scrollLayer.position.y = 0
+            }
+            else if(scrollLayer.position.y + yDelta > totalSize.height - maskSize.height){
+                scrollLayer.position.y = totalSize.height - maskSize.height
+            }
+            
+            yLast = location!.y
         }
-        else if(scrollLayer.position.y + yDelta < 0){
-            scrollLayer.position.y = 0
-        }
-        else if(scrollLayer.position.y + yDelta > totalSize.height - maskSize.height){
-            scrollLayer.position.y = totalSize.height - maskSize.height
-        }
-        
-        yLast = location!.y
     }
 }

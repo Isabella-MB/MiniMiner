@@ -21,15 +21,12 @@ class Sidebar: SKNode{
         
         var menuItems = [InventoryMenuItem]()
         
-        var menuItemPosition = CGPoint(x: 0, y: 0)
-        
         for i in 0..<MineableType.count{
             
             let mineable = MineableType(rawValue: i)!
             
             if(inventory.collectedMineables[mineable]! > 0){
-                menuItemPosition.y -= 60
-                menuItems.append(InventoryMenuItem(position: menuItemPosition, mineableType: mineable, numberOfItems: inventory.collectedMineables[mineable]!))
+                menuItems.append(InventoryMenuItem(mineableType: mineable, numberOfItems: inventory.collectedMineables[mineable]!))
             }
         }
         
