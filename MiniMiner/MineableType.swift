@@ -67,12 +67,12 @@ enum MineableType: Int{
         return coordinates[rawValue] 
     }
 
-    var value: Int{
+    func getValue(percentChange: CGFloat) -> Int{
         let value = [
             200, 400, 100, 100, 100, 100, 100, 100, 100, 100, 100
         ]
         
-        return value[rawValue]
+        return value[rawValue] * Int(percentChange)
     }
     
     var size: CGSize{
@@ -103,4 +103,5 @@ enum MineableType: Int{
         let rand = Int(arc4random_uniform(UInt32(count)))
         return MineableType(rawValue: rand)!
     }
+    
 }
