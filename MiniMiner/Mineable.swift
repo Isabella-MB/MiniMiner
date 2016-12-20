@@ -13,7 +13,6 @@ class Mineable: SKSpriteNode {
     
     var mineableType: MineableType;
     var coordinates: CGPoint;
-    var manager: StockManager;
     
     var revealed = false;
     
@@ -44,7 +43,6 @@ class Mineable: SKSpriteNode {
             run(sequence)
             
             inventory.addMineable(mineableType)
-            mineableType.value = mineableType.rawValue * manager.getRandomStock().change
             
             revealed = true
         }

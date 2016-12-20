@@ -67,12 +67,12 @@ enum MineableType: Int{
         return coordinates[rawValue] 
     }
 
-    func getValue(percentChange: CGFloat) -> Int{
-        let value = [
-            200, 400, 100, 100, 100, 100, 100, 100, 100, 100, 100
-        ]
+    var value: Int{
+        let stockManager = StockManager()
+        stockManager.loadStocks()
+        stockManager.getRandomStock()
         
-        return value[rawValue] * Int(percentChange)
+        return Int()
     }
     
     var size: CGSize{

@@ -49,7 +49,7 @@ class SKVerticalScrollMenu : SKCropNode{
         addChild(scrollLayer)
         
         let maskSprite = SKSpriteNode(texture: SKTexture(), size: size)
-        maskSprite.anchorPoint = CGPoint(x: 0.5, y: 1)
+        maskSprite.anchorPoint = CGPoint(x: 0, y: 1)
         maskNode = maskSprite
         
         isUserInteractionEnabled = true
@@ -77,14 +77,14 @@ class SKVerticalScrollMenu : SKCropNode{
         
         if(touchedUpInside){
             
-            if(scrollLayer.position.y + yDelta > 0 && scrollLayer.position.y + yDelta < totalSize.height - maskSize.height){
+            if(scrollLayer.position.y + yDelta > 0 && scrollLayer.position.y + yDelta < totalSize.height - maskSize.height * 1.5){
                 scrollLayer.position.y += yDelta
             }
             else if(scrollLayer.position.y + yDelta < 0){
                 scrollLayer.position.y = 0
             }
-            else if(scrollLayer.position.y + yDelta > totalSize.height - maskSize.height){
-                scrollLayer.position.y = totalSize.height - maskSize.height
+            else if(scrollLayer.position.y + yDelta > totalSize.height - maskSize.height * 1.5){
+                scrollLayer.position.y = totalSize.height - maskSize.height *  1.5
             }
             
             yLast = location!.y

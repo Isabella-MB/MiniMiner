@@ -30,7 +30,7 @@ class Sidebar: SKNode{
             }
         }
         
-        itemMenu = SKVerticalScrollMenu(position: CGPoint(x: 120, y: 600), size: CGSize(width: 320, height: 200), childNodes: menuItems)
+        itemMenu = SKVerticalScrollMenu(position: CGPoint(x: 30, y: 300), size: CGSize(width: 260, height: 300), childNodes: menuItems)
         
         super.init()
     
