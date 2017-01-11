@@ -34,7 +34,7 @@ class StockManager{
         }
     }
     
-    func getRandomStock() -> [Float]
+    func getRandomStock(callback: ([Int]) -> ())
     {
         let stockName = stockStrings[Int(arc4random_uniform(UInt32(stockStrings.count)))]
         
@@ -51,12 +51,16 @@ class StockManager{
             }
             else{
                 do{
+                    
+                    var stockHighs = [Int]()
+                    
                     let jsonDict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                     
                     if let quotes = ((jsonDict.object(forKey: "query") as AnyObject).object(forKey: "results") as AnyObject).object(forKey: "quote") as? NSArray
                     {
-                    
-                    print(quotes)
+                        for quote in quotes{
+                            stockHighs.append(Int(((quote as AnyObject).object(forKey: "high") as! Float) * 100))
+                        }
                     }
                 }
                 catch let jsonError as NSError {
@@ -66,11 +70,5 @@ class StockManager{
         })
         
         task.resume()
-        
-        return [Float]()
-    }
-    
-    func unloadStocks() {
-        stockStrings = []
     }
 }
